@@ -19,11 +19,9 @@ io.sockets.on('connection', function (socket) {
 		
 		socket.join(room);
 		// echo to client they've connected
-		console.log(room);
 		socket.emit('getRandomUserName', socket.username);
-		socket.emit('updatechat', 'SERVER', 'You have been magically connected to '+room);
+	//	socket.emit('updatechat', 'SERVER', 'You have been magically connected to '+room);
 
-		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to(room).emit('updatechat', 'SERVER', socket.username + ' has connected to this room');
 		//socket.emit('updaterooms', rooms, 'room1');
 	});

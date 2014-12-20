@@ -1,6 +1,6 @@
 <?php
 
-$x = mysqli_connect("localhost", "root", "ninjaticam","nodetest" );
+$x = mysqli_connect("localhost", "root", "","nodetest" );
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();

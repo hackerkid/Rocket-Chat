@@ -17,7 +17,8 @@
 		
 		
 		fakeId = x;
-		console.log(fakeId);
+		
+
 
 
 	}); 
@@ -34,6 +35,29 @@
 	
 	$(function(){
 		// when the client clicks SEND
+		$(document).ready(function(){
+  			
+  			 $.ajax({                                      
+      			url: 'fetchmessage.php',                  //the script to call to get data          
+      			data: {room:roomId},                        //you can insert url argumnets here to pass to api.php
+                dataType: 'json',                //data format      
+     			success: function(data) {
+     				//var obj = JSON.parse(data);
+     				
+					for(var i = 0; i < data.length; i++) {
+						var usenam = data[i]["author"];
+						var mes = data[i]["message"];
+						$('#conversation').append('<b>'+usenam + ':</b> ' + mes + '<br>');
+
+					}
+					
+  					
+  				}
+  			});
+
+
+		}); 
+
 		$('#datasend').click( function() {
 			var message = $('#data').val();
 			$('#data').val('');
@@ -44,6 +68,7 @@
 				type: "POST",
 				data : {name: fakeId, message: message, room: roomId},
 				sucess:function(data) {
+
 
 				}
 			});
