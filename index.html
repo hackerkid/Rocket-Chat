@@ -3,10 +3,17 @@
 <script>
 	var socket = io.connect('http://localhost:8080');
 
+	var guys = ["Ron", "Harry", "Dubledore", "Hermione", "Snape", "Malfoy", "Ginny", "Mcgonagal", "Lupin", "Fred", "George"];
+
+
+	roomId = "Harrypotter Discussion Room";
+	userId = guys[Math.floor((Math.random() * 10))]; 
 	// on connection to server, ask for user's name with an anonymous callback
 	socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', prompt("What's your name?"));
+		
+		
+		socket.emit('adduser', userId, roomId);
 	});
 
 	// listener, whenever the server emits 'updatechat', this updates the chat body
@@ -14,22 +21,8 @@
 		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
 	});
 
-	// listener, whenever the server emits 'updaterooms', this updates the room the client is in
-	socket.on('updaterooms', function(rooms, current_room) {
-		$('#rooms').empty();
-		$.each(rooms, function(key, value) {
-			if(value == current_room){
-				$('#rooms').append('<div>' + value + '</div>');
-			}
-			else {
-				$('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
-			}
-		});
-	});
+	
 
-	function switchRoom(room){
-		socket.emit('switchRoom', room);
-	}
 	
 	// on load of page
 	$(function(){
@@ -52,7 +45,7 @@
 
 </script>
 <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
-	<b>ROOMS</b>
+	<b>This is room Hobbit3</b>
 	<div id="rooms"></div>
 </div>
 <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
