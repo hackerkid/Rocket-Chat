@@ -38,13 +38,14 @@
 		$(document).ready(function(){
   			
   			 $.ajax({                                      
-      			url: 'fetchmessage.php',                  //the script to call to get data          
+      			url: 'fetchmessage.php', 
+      			type: 'POST',                 //the script to call to get data          
       			data: {room:roomId},                        //you can insert url argumnets here to pass to api.php
                 dataType: 'json',                //data format      
      			success: function(data) {
      				//var obj = JSON.parse(data);
      				
-					for(var i = 0; i < data.length; i++) {
+					for(var i = data.length-1; i >= 0; i--) {
 						var usenam = data[i]["author"];
 						var mes = data[i]["message"];
 						$('#conversation').append('<b>'+usenam + ':</b> ' + mes + '<br>');
@@ -65,8 +66,9 @@
 			
 			$.ajax({
 				url: "sendmessage.php",
-				type: "POST",
+				type: 'POST',
 				data : {name: fakeId, message: message, room: roomId},
+				dataType: 'json',
 				sucess:function(data) {
 
 

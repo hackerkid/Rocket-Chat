@@ -1,13 +1,8 @@
 <?php
-//$room = $_POST["room"];
-$room = "Babblenow Discusions";
-$x = mysqli_connect("localhost", "root", "","nodetest" );
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+require_once("database.php");
+$room = $_POST["room"];
 
- $result = mysqli_query($x, "SELECT * from message where room = '$room'");
+ $result = mysqli_query($conf, "SELECT * from message  where room = '$room' ORDER by id DESC LIMIT 18");
  $jsonData = array();
 while ($array = mysqli_fetch_assoc($result)) {
     $jsonData[] = $array;
