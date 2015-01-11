@@ -1,7 +1,9 @@
 <script src="socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script>
-	var socket = io.connect('http://localhost:8080');
+	
+	var online = new Array(); 
+	var socket = io.connect('localhost:8080');
 
 
 	var roomId = "Babblenow Discusions";
@@ -12,6 +14,8 @@
 		socket.emit('adduser', roomId);
 
 	});
+
+
 
 	socket.on('getRandomUserName', function (x){
 		
@@ -28,6 +32,45 @@
 
 	socket.on('updatechat', function (username, data) {
 		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+	});
+
+	socket.on('updatetype',function(data) {
+		var ok = 1;
+		for (var i = 0; i < online.length; i++ ) {
+			if(online[i] == data) {
+				ok = 0;
+				break;
+			}
+		}
+
+		if(ok) {
+			online.push(data);
+		}
+
+		$('#status').html('');
+		for(var i = 0; i < online.length; i++) {
+			$('#status').append(online[i] + ',');
+		
+		}
+
+		console.log(online.length);
+
+
+		$('#status').append(' is typing');
+
+	
+		setTimeout(function () {
+        $("#status").html('');
+    	for (var i = 0; i < online.length; i++) {
+			if(online[i] == data) {
+				array.splice(i, 1);
+				break;
+			}
+		}
+//		
+
+    	}, 3000);
+
 	});
 
 	
@@ -80,6 +123,7 @@
 
 		// when the client hits ENTER on their keyboard
 		$('#data').keypress(function(e) {
+			socket.emit('typesend', fakeId);
 			if(e.which == 13) {
 				$(this).blur();
 				$('#datasend').focus().click();
@@ -96,4 +140,5 @@
 	<div id="conversation"></div>
 	<input id="data" style="width:200px;" />
 	<input type="button" id="datasend" value="send" />
+	<div id="status"> </div>
 </div>

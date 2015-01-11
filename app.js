@@ -31,6 +31,11 @@ io.sockets.on('connection', function (socket) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
+
+	socket.on('typesend', function(data) {
+		socket.broadcast.to(socket.room).emit('updatetype', data);
+		
+	});
 	
 	
 
@@ -38,7 +43,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('disconnect', function(){
 		// remove the username from global usernames list
 		guys.push(socket.username);
-		socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
 	});
 });
