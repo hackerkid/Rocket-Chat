@@ -1,6 +1,6 @@
-<img src="http://www.clker.com/cliparts/f/B/W/Z/w/u/two-window-rocket-md.png" />
+# <img src="http://www.clker.com/cliparts/f/B/W/Z/w/u/two-window-rocket-md.png" /> Rocket Chat
 
-An awesome open source group chat software. 
+An awesome open source group chat software build in Node.js for running alongside Apache. 
 
 ## About
 
@@ -24,8 +24,10 @@ Now just clone and start the app:
 git clone https://github.com/Hackerkid/Rocket-Chat.git
 cd Rocket.Chat
 npm install
+node app.js
 
 ```
+Make sure to clone the contents in the www/html directory of the Apache server. Open the index.html file in browser to enjoy the chat.
 
 ### Production
 
