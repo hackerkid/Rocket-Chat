@@ -1,4 +1,4 @@
-# <img src="http://www.clker.com/cliparts/f/B/W/Z/w/u/two-window-rocket.svg" width="20" /> Rocket Chat
+# <img src="http://www.clker.com/cliparts/f/B/W/Z/w/u/two-window-rocket.svg" width="40" /> Rocket Chat
 
 An awesome open source group chat software build in Node.js for running alongside Apache. 
 
