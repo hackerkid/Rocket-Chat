@@ -22,7 +22,6 @@ node app.js
 ```
 Make sure to clone the contents in the www/html directory of the Apache server. Open the index.html file in browser to enjoy the chat.
 
-### Production
 
 
 ## Features
@@ -46,10 +45,6 @@ Make sure to clone the contents in the www/html directory of the Apache server. 
 - XMPP Multi-user chat (MUC)
 - Native Mobile App
 - Native Desktop App
-
-### Issues
-
-[Github Issues](https://github.com/Hackerkid/Rocket-Chat/issues) are used to track todos, bugs, feature requests, and more.
 
 ### Contributions
 
