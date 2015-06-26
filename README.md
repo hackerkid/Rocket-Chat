@@ -2,16 +2,9 @@
 
 An awesome open source group chat software build in Node.js for running alongside Apache. 
 
-## About
-
 [![MIT License][license-image]][license-url]
 
-Rocket.Chat is a Web Chat Server, developed in JavaScript, using Node.js and Socet.io
-
-
 ## Installation
-
-### Development
 
 Prerequisites:
 
@@ -62,9 +55,9 @@ Make sure to clone the contents in the www/html directory of the Apache server. 
 
 #### We Need Your Help!
 
-A lot of work has already gone into Rocket.Chat, but we have much bigger plans for it!
+A lot of work has already gone into Rocket Chat, but we have much bigger plans for it!
 
-So if you'd like to be part of the project, please check out the [roadmap](https://github.com/Hackerkid/Rocket-Chat/milestones) and [issues](https://github.com/Hackerkid/Rocket-Chat/issues)to see if there's anything you can help with.
+So if you'd like to be part of the project, please check out the [roadmap](https://github.com/Hackerkid/Rocket-Chat/milestones) and [issues](https://github.com/Hackerkid/Rocket-Chat/issues) to see if there's anything you can help with.
 
 
 ### License
@@ -74,3 +67,4 @@ Note that Rocket.Chat is distributed under the [MIT License](http://opensource.o
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
+
