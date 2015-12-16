@@ -17,10 +17,11 @@ Now just clone and start the app:
 git clone https://github.com/Hackerkid/Rocket-Chat.git
 cd Rocket.Chat
 npm install
+cd server
 node app.js
 
 ```
-Make sure to clone the contents in the www/html directory of the Apache server. Open the index.html file in browser to enjoy the chat.
+Make sure to clone the contents in the www/html directory of the Apache server. Open the index.php file in browser to enjoy the chat.
 
 
 
