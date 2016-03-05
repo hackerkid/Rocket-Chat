@@ -58,7 +58,7 @@ So if you'd like to be part of the project, please check out the [roadmap](https
 
 ### License
 
-Note that Rocket.Chat is distributed under the [MIT License](http://opensource.org/licenses/MIT).
+Note that Rocket Chat is distributed under the [MIT License](http://opensource.org/licenses/MIT).
 
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
